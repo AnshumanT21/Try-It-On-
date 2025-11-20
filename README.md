@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
+🧥 Try It On! — AI-Powered Virtual Fitting Room
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform mobile app that lets users upload a photo of themselves, choose clothing, generate realistic AI try-on previews, and instantly create 3D models of the outfit.
 
-## Get started
+📸 Overview
 
-1. Install dependencies
+Try It On! is a React Native + Expo application with a Python (Flask) backend.
+The app allows users to:
 
-   ```bash
-   npm install
-   ```
+Upload an image of themselves
 
-2. Start the app
+Upload an image of clothes
 
-   ```bash
-   npx expo start
-   ```
+Use AI (Flux / Replicate API) to generate a “virtual try-on”
 
-In the output, you'll find options to open the app in a
+Convert the edited outfit into a 3D model using TripoSR
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+View + store both the try-on image and 3D model
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Automatically store uploads in Cloudinary + metadata in Supabase
 
-## Get a fresh project
+This project is fully mobile-ready, cross-platform, and uses modern AI pipelines.
 
-When you're ready, run:
+🧠 Features
+🎭 Virtual Try-On
 
-```bash
-npm run reset-project
-```
+Upload a person photo + clothing photo
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Use AI models through Replicate API (Flux)
 
-## Learn more
+Generate realistic, high-quality try-on images
 
-To learn more about developing your project with Expo, look at the following resources:
+🧊 3D Model Generation
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Convert the AI-generated try-on image → 3D mesh using TripoSR
 
-## Join the community
+Auto-convert OBJ → GLB
 
-Join our community of developers creating universal apps.
+Upload the GLB mesh to Cloudinary
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Display the 3D model inside the app viewer
+
+☁️ Cloud Storage + Database
+
+Images + meshes stored securely in Cloudinary
+
+Metadata stored in Supabase (user_uploads, user_models)
+
+📱 Mobile App
+
+Built with React Native + Expo
+
+Modern UI with brand colors
+
+Supports image upload, preview, animations, and navigation
+
+Works on both iOS + Android
+
+🏗 Architecture
+User → Mobile App → Flask Backend → AI Models (Replicate/Flux)
+                               ↓
+                           TripoSR → OBJ
+                               ↓
+                         OBJ → GLB converter (obj2gltf)
+                               ↓
+                  Cloudinary (Mesh + Images) → Supabase
+Frontend
+
+React Native
+
+Expo Router
+
+Reanimated
+
+Cloudinary upload
+
+Supabase client
+
+3D GLB viewer (react-three or expo-three-viewer)
+
+Backend
+
+Flask
+
+Python
+
+TripoSR (local inferencing)
+
+Cloudinary Python SDK
+
+Supabase Python client
+
+Ngrok (for tunneling local backend to mobile app)
+
+📁 Project Structure
+TryItOn-App
+ ├── app
+ │   ├── home.tsx
+ │   ├── camera.tsx
+ │   ├── uploads/
+ │   ├── models/
+ │   ├── edited/
+ │   └── _layout.tsx
+ └── assets
+     └── images
+
+TryItOn-Backend
+ ├── TripoSR/
+ │   ├── run.py
+ │   ├── tsr/
+ │   └── output/  (auto-generated)
+ ├── outputs/
+ ├── app.py
+ ├── .env
+ └── requirements.txt
