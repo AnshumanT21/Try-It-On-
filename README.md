@@ -24,37 +24,37 @@ This project is fully mobile-ready, cross-platform, and uses modern AI pipelines
 🧠 Features
 🎭 Virtual Try-On
 
-Upload a person photo + clothing photo
+1. Upload a person photo + clothing photo
 
-Use AI models through Replicate API (Flux)
+2. Use AI models through Replicate API (Flux)
 
-Generate realistic, high-quality try-on images
+3. Generate realistic, high-quality try-on images
 
 🧊 3D Model Generation
 
-Convert the AI-generated try-on image → 3D mesh using TripoSR
+1. Convert the AI-generated try-on image → 3D mesh using TripoSR
 
-Auto-convert OBJ → GLB
+2. Auto-convert OBJ → GLB
 
-Upload the GLB mesh to Cloudinary
+3. Upload the GLB mesh to Cloudinary
 
-Display the 3D model inside the app viewer
+4. Display the 3D model inside the app viewer
 
 ☁️ Cloud Storage + Database
 
-Images + meshes stored securely in Cloudinary
+1. Images + meshes stored securely in Cloudinary
 
-Metadata stored in Supabase (user_uploads, user_models)
+2. Metadata stored in Supabase (user_uploads, user_models)
 
 📱 Mobile App
 
-Built with React Native + Expo
+1. Built with React Native + Expo
 
-Modern UI with brand colors
+2. Modern UI with brand colors
 
-Supports image upload, preview, animations, and navigation
+3. Supports image upload, preview, animations, and navigation
 
-Works on both iOS + Android
+4. Works on both iOS + Android
 
 🏗 Architecture
 User → Mobile App → Flask Backend → AI Models (Replicate/Flux)
@@ -64,33 +64,34 @@ User → Mobile App → Flask Backend → AI Models (Replicate/Flux)
                          OBJ → GLB converter (obj2gltf)
                                ↓
                   Cloudinary (Mesh + Images) → Supabase
+
 Frontend
 
-React Native
+1. React Native
 
-Expo Router
+2. Expo Router
 
-Reanimated
+3. Reanimated
 
-Cloudinary upload
+4. Cloudinary upload
 
-Supabase client
+5. Supabase client
 
-3D GLB viewer (react-three or expo-three-viewer)
+6. 3D GLB viewer (react-three or expo-three-viewer)
 
 Backend
 
-Flask
+1. Flask
 
-Python
+2. Python
 
-TripoSR (local inferencing)
+3. TripoSR (local inferencing)
 
-Cloudinary Python SDK
+4. Cloudinary Python SDK
 
-Supabase Python client
+5. Supabase Python client
 
-Ngrok (for tunneling local backend to mobile app)
+6. Ngrok (for tunneling local backend to mobile app)
 
 📁 Project Structure
 TryItOn-App
